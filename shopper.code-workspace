@@ -1,0 +1,42 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.detectIndentation": false,
+		"editor.insertSpaces": false,
+		"files.exclude": {
+		},
+		"files.autoSave": "off",
+		"editor.quickSuggestions": {
+			"other": true,
+			"comments": true,
+			"strings": true
+		},
+		"eslint.enable": true,
+		"eslint.run": "onSave",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll": "always",
+			"source.fixAll.eslint": "always",
+			"source.organizeImports": "always",
+			"source.fixAll.stylelint": "always",
+			"editor.action.formatDocument": "always"
+		},
+		"workbench.editor.autoLockGroups": {
+			"mainThreadWebview-markdown.preview": true
+		},
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#2a302b",
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"dbaeumer.vscode-eslint",
+			"eamodio.gitlens",
+			"mhutchie.git-graph"
+		]
+	},
+}
