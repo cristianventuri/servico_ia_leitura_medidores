@@ -1,7 +1,10 @@
-import { createParamDecorator, ExecutionContext, BadRequestException } from '@nestjs/common';
-import { validate, ValidationError } from 'class-validator';
+import {
+  BadRequestException,
+  ExecutionContext,
+  createParamDecorator,
+} from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
-import { RequestUpload } from 'src/dto/upload.dto';
+import { ValidationError, validate } from 'class-validator';
 import { RequestConfirm } from 'src/dto/confirm.dto';
 
 export class ErrorResponse {
@@ -15,7 +18,7 @@ export class ErrorResponse {
 
 /**
  * `ValidateBodyRequest` é um decorator customizado para validar objetos de requisição.
- * 
+ *
  * @param {any} classType
  * @param ctx - O contexto da execução.
  * @returns Uma instância validada do objeto DTO, ou lança uma exceção `BadRequestException` se a validação falhar.
@@ -28,29 +31,28 @@ export const ValidateBodyRequest = createParamDecorator(
     const validatedObject = plainToInstance(classType, body);
 
     return validate(validatedObject).then((errors: ValidationError[]) => {
-
       /* Se possuir erros */
       if (errors.length) {
-        const errorMessages = errors.flatMap(error => Object.values(error?.constraints)) ?? [];
+        const errorMessages =
+          errors.flatMap((error) => Object.values(error?.constraints)) ?? [];
 
-        if(validatedObject instanceof RequestConfirm){
+        if (validatedObject instanceof RequestConfirm) {
           throw new BadRequestException({
             statusCode: 400,
-            message:  'Parâmetro measure type diferente de WATER ou GAS',
+            message: 'Parâmetro measure type diferente de WATER ou GAS',
             error: {
               error_code: 'INVALID_TYPE',
-              error_description: errorMessages
-            }
+              error_description: errorMessages,
+            },
           });
-          
-         } else {
+        } else {
           throw new BadRequestException({
             statusCode: 400,
-            message:  'Os dados fornecidos no corpo da requisição são inválidos',
+            message: 'Os dados fornecidos no corpo da requisição são inválidos',
             error: {
               error_code: 'INVALID_DATA',
-              error_description: errorMessages
-            }
+              error_description: errorMessages,
+            },
           });
         }
       }
