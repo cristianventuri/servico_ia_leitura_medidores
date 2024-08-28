@@ -7,8 +7,7 @@
 	"settings": {
 		"editor.detectIndentation": false,
 		"editor.insertSpaces": false,
-		"files.exclude": {
-		},
+		"files.exclude": {},
 		"files.autoSave": "off",
 		"editor.quickSuggestions": {
 			"other": true,
@@ -35,8 +34,28 @@
 	"extensions": {
 		"recommendations": [
 			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
 			"eamodio.gitlens",
-			"mhutchie.git-graph"
+			"mhutchie.git-graph",
+			"postman.postman-for-vscode"
 		]
 	},
+	"launch": {
+		"configurations": [
+			{
+				"type": "node",
+				"request": "attach",
+				"name": "Backend - Attach to Conteiner",
+				"address": "localhost",
+				"localRoot": "${workspaceFolder}",
+				"remoteRoot": "/shopper/backend",
+				"stopOnEntry": false,
+				"restart": true,
+				"protocol": "inspector",
+				"skipFiles": [
+					"<node_internals>/**"
+				]
+			},
+		]
+	}
 }
