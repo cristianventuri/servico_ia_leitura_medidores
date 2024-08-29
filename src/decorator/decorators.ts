@@ -1,7 +1,8 @@
 import {
-  BadRequestException,
-  ExecutionContext,
-  createParamDecorator,
+	BadRequestException,
+	ExecutionContext,
+	HttpStatus,
+	createParamDecorator,
 } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { ValidationError, validate } from 'class-validator';
@@ -38,7 +39,7 @@ export const ValidateBodyRequest = createParamDecorator(
 
         if (validatedObject instanceof RequestConfirm) {
           throw new BadRequestException({
-            statusCode: 400,
+            statusCode: HttpStatus.BAD_REQUEST,
             message: 'Parâmetro measure type diferente de WATER ou GAS',
             error: {
               error_code: 'INVALID_TYPE',
@@ -47,7 +48,7 @@ export const ValidateBodyRequest = createParamDecorator(
           });
         } else {
           throw new BadRequestException({
-            statusCode: 400,
+            statusCode: HttpStatus.BAD_REQUEST,
             message: 'Os dados fornecidos no corpo da requisição são inválidos',
             error: {
               error_code: 'INVALID_DATA',
