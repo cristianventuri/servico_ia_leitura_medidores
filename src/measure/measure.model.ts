@@ -1,8 +1,9 @@
 import { Column, Model, Table } from 'sequelize-typescript';
-import { MeasureStatus } from './measure.enum';
+import { MeasureDto } from 'src/dto/measure.dto';
+import { MeasureStatus } from '../enum/measure.enum';
 
 @Table
-export class Measure extends Model<Measure> {
+export class Measure extends Model<MeasureDto> implements MeasureDto {
   @Column({
     allowNull: false,
     autoIncrement: true,
@@ -14,7 +15,7 @@ export class Measure extends Model<Measure> {
     allowNull: false,
     unique: true,
   })
-  guid: string;
+  measure_uuid: string;
 
   @Column({
     allowNull: false,
@@ -24,7 +25,12 @@ export class Measure extends Model<Measure> {
   @Column({
     allowNull: false,
   })
-  custumer_code: string;
+  customer_code: string;
+
+  @Column({
+    allowNull: true,
+  })
+  measure_value: number;
 
   @Column({
     allowNull: false,
@@ -39,5 +45,5 @@ export class Measure extends Model<Measure> {
   @Column({
     allowNull: false,
   })
-  status: MeasureStatus;
+  measure_status: MeasureStatus;
 }
