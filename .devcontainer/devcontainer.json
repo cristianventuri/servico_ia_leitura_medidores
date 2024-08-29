@@ -9,6 +9,18 @@
 		"../docker-compose.yml",
 		"docker-compose.yml"
 	],
+	"customizations":{
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"eamodio.gitlens",
+				"mhutchie.git-graph",
+				"postman.postman-for-vscode",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
 
 	// The 'service' property is the name of the service for the container that VS Code should
 	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
