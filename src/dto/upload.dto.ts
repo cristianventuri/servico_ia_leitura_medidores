@@ -1,11 +1,11 @@
 import {
-	IsBase64,
-	IsDateString,
-	IsEnum,
-	IsNotEmpty,
-	IsString,
+  IsBase64,
+  IsDateString,
+  IsEnum,
+  IsNotEmpty,
+  IsString,
 } from 'class-validator';
-import { MeasureType } from 'src/measure/measure.enum';
+import { MeasureType } from 'src/enum/measure.enum';
 
 export class ResponseUpload {
   public guid: string;
