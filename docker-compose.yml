@@ -14,14 +14,13 @@ services:
       - postgres
     ports:
       - 80:3000
-      - 9229:9229
     expose:
       - 80
       - 3000
       - 9229
     volumes:
       - .:/shopper/backend
-    command: 'npm run start:debug'
+    command: 'npm run start:dev'
 
   postgres:
     image: postgres:latest
