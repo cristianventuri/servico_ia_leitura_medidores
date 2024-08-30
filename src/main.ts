@@ -21,6 +21,6 @@ async function bootstrap() {
   /* Disponibiliza diretório público*/
   app.use('/public', express.static(PUBLIC_DIR));
 
-  await app.listen(8080);
+  await app.listen(80);
 }
 bootstrap();
