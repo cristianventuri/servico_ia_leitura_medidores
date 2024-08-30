@@ -19,9 +19,11 @@ services:
       - 3000
       - 9229
     volumes:
-      - .:/shopper/backend
       - ./public:/shopper/backend/public
-    command: 'npm run start:dev'
+      - ./src:/shopper/backend/src
+      - ./package.json:/shopper/backend/package.json
+      - /shopper/node_modules
+    command: 'npm run start'
 
   postgres:
     image: postgres:latest
