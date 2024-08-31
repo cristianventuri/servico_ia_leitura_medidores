@@ -70,7 +70,7 @@ Responsável por receber uma imagem em Base64, consultar a API Gemini e retornar
 	"image": "base64", 
 	"customer_code": "string", 
 	"measure_datetime": "datetime", 
-	"measure_type": "WATER" ou "GAS"
+	"measure_type": "WATER ou GAS"
 } 
 ```
 
@@ -78,7 +78,7 @@ Responsável por receber uma imagem em Base64, consultar a API Gemini e retornar
 ```json
 { 
 	"image_url": "string", 
-	"measure_value": 123, 
+	"measure_value": "number", 
 	"measure_uuid": "string" 
 }
 ```
