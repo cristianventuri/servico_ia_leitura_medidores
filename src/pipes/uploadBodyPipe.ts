@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { ValidationError, validate } from 'class-validator';
-import { MeasureUploadService } from 'src/measure/measureUpload.service';
+import { MeasureUploadService } from '../measure/measureUpload.service';
 
 @Injectable()
 export class UploadBodyPipe implements PipeTransform {

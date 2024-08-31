@@ -5,8 +5,8 @@ import {
   Injectable,
   PipeTransform,
 } from '@nestjs/common';
-import { MeasureType } from 'src/enum/measure.enum';
-import { MeasureListService } from 'src/measure/measureList.service';
+import { MeasureType } from '../enum/measure.enum';
+import { MeasureListService } from '../measure/measureList.service';
 
 @Injectable()
 export class ListValidatePipe implements PipeTransform {

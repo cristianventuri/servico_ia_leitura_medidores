@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { MeasureType } from 'src/enum/measure.enum';
-import { Measure } from 'src/measure/measure.model';
+import { MeasureType } from '../enum/measure.enum';
+import { Measure } from '../measure/measure.model';
 
 export class ParamList {
   @IsNotEmpty({ message: 'customer_code não definido' })

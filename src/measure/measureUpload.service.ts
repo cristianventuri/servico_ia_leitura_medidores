@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import * as path from 'path';
-import { RequestUpload, ResponseUpload } from 'src/dto/upload.dto';
-import GoogleFileManager from 'src/integration/googleAI';
-import { PUBLIC_DIR } from 'src/main';
+import { RequestUpload, ResponseUpload } from '../dto/upload.dto';
+import { PUBLIC_DIR } from '../enum/directories.enum';
+import GoogleFileManager from '../integration/googleAI';
 import { Measure } from './measure.model';
 import { MeasureRepository } from './measure.repository';
 

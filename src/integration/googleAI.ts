@@ -45,7 +45,7 @@ class GoogleFileManagerAI {
 
       return result.response.text();
     } catch (error) {
-      console.error('Erro durante o processamento da imagem e prompt:', error);
+      return error;
     }
   }
 

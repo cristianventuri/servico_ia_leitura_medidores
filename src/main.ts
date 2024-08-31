@@ -1,10 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import * as express from 'express';
 import { existsSync, mkdirSync } from 'fs';
-import * as path from 'path';
 import { AppModule } from './app.module';
-
-export const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+import { PUBLIC_DIR } from './enum/directories.enum';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

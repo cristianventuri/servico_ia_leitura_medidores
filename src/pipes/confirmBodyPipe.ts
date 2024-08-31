@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { ValidationError, validate } from 'class-validator';
-import { MeasureConfirmService } from 'src/measure/measureConfirm.service';
+import { MeasureConfirmService } from '../measure/measureConfirm.service';
 
 @Injectable()
 export class ConfirmBodyPipe implements PipeTransform {

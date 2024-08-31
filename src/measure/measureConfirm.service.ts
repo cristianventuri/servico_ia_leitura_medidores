@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { RequestConfirm, ResponseConfirm } from 'src/dto/confirm.dto';
 import { Measure } from './measure.model';
 import { MeasureRepository } from './measure.repository';
@@ -15,6 +15,15 @@ export class MeasureConfirmService {
    */
   public async confirm(requestBody: RequestConfirm): Promise<ResponseConfirm> {
     const measure = await this.checkExistingMeasure(requestBody);
+
+    if (!measure) {
+      throw new NotFoundException({
+        status_code: HttpStatus.NOT_FOUND,
+        message: 'Leitura não encontrada',
+        error_code: 'MEASURE_NOT_FOUND',
+        error_description: 'Leitura do mês já realizada',
+      });
+    }
 
     await measure.update({
       measure_value: requestBody.confirmed_value,
